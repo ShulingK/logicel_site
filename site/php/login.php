@@ -1,7 +1,7 @@
 <?php 
-require_once ('config.php');
+require_once "config.php";
 
-if(!isset($_POST['password']) || !isset($_POST['mail']) ){
+if(!isset($_POST['password']) || !isset($_POST['email']) ){
     $_SESSION['output'] = "Email ou/et mot de passe vide";
     header('Location:user.php');  
 }

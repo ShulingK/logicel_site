@@ -10,16 +10,16 @@
                 <h2>S'INSCRIRE</h2>
             </div>
             <div class="connect">
-                <form method="post" action="php/logup.php">
+                <form method="post" action="php/register.php">
                     <p>Prénom</p>
-                    <input class="white-text" type='text' name='first_name' />
+                    <input type='text' name='first_name' />
                     <p>Nom</p>
-                    <input class="white-text" type='text' name='name' />
+                    <input type='text' name='name' />
                     <p>E-mail</p>
-                    <input class="white-text" type='email' name='mail'/>
+                    <input type='email' name='email'/>
                     <p>Mot de passe</p>
-                    <input class="white-text" type='password' name='password' />
-                    <div class="count"><input class="butonuser" type='submit' value='Créer un compte' /></div>
+                    <input type='password' name='password' />
+                    <input type='submit' value='Créer un compte' />
                 </form>
             </div>
             <div class="conditions">

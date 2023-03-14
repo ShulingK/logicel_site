@@ -1,12 +1,19 @@
 <?php
-require_once "config.php";
+require_once ('config.php');
 if(!isset($_POST['first_name']) || !isset($_POST['name']) || !isset($_POST['password']) || !isset($_POST['email'])){
     
     header('Location: ../user.php');
     exit();
 }
 
-$pre = $pdo->prepare("INSERT INTO user(first_name,name,emailpassword) VALUES(:first_name,:name,:email,:password)");
+$pre = $pdo->prepare("SELECT email FROM user WHERE email=:email");
+$pre->bindParam(":email", $_POST['email']);
+$pre->execute();
+if($pre->rowCount() != 0){
+    $_SESSION["output"] = "email deja existant";
+    header('Location: ../user.php');
+}
+$pre = $pdo->prepare("INSERT INTO user(first_name,name,email,password) VALUES(:first_name,:name,:email,:password)");
 $pre->execute(array(
     ':first_name' =>$_POST['first_name'],
     ':name'   => $_POST['name'],
